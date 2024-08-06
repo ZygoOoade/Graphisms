@@ -59,7 +59,7 @@ async def generate_dalle_image(prompt: str):
 async def generate_stable_diffusion_image(prompt: str):
     try:
         images = []
-        for _ in range(1):  # Generate 6 images
+        for _ in range(1):  
             result = await asyncio.to_thread(
                 stable_diffusion_client.predict,
                 prompt=prompt,
@@ -114,7 +114,7 @@ async def generate_flux_image(prompt: str, client, model_name):
             randomize_seed=True,
             width=1024,
             height=1024,
-            num_inference_steps=30,
+            num_inference_steps=25,
             api_name="/infer"
         )
         image_path = result[0] if isinstance(result, tuple) else result
