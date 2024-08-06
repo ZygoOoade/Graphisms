@@ -69,7 +69,7 @@ async def generate_stable_diffusion_image(prompt: str):
                 width=1024,
                 height=1024,
                 guidance_scale=5,
-                num_inference_steps=50,
+                num_inference_steps=40,
                 api_name="/infer"
             )
             image_path = result[0] if isinstance(result, tuple) else result
@@ -114,7 +114,7 @@ async def generate_flux_image(prompt: str, client, model_name):
             randomize_seed=True,
             width=1024,
             height=1024,
-            num_inference_steps=10,
+            num_inference_steps=30,
             api_name="/infer"
         )
         image_path = result[0] if isinstance(result, tuple) else result
