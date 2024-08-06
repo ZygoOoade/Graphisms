@@ -15,14 +15,23 @@ stable_diffusion_client = Client("stabilityai/stable-diffusion-3-medium")
 pixart_client = Client("PixArt-alpha/PixArt-Sigma")
 
 flux_clients = {
-    "schnell": Client("black-forest-labs/FLUX.1-schnell"),
-    "dev": Client("black-forest-labs/FLUX.1-dev"),
-    "henry96": Client("Henry96/FLUX.1-dev"),
-    "filiper": Client("FilipeR/FLUX.1-dev-UI"),
-    "nick088": Client("Nick088/FLUX.1-dev"),
-    "markury": Client("markury/FLUX.1-dev-LoRA"),
-    "notailol": Client("NotAiLOL/FLUX.1-dev"),
-    "multimodalart": Client("multimodalart/FLUX.1-merged")
+    "1": Client("black-forest-labs/FLUX.1-schnell"),
+    "2": Client("black-forest-labs/FLUX.1-dev"),
+    "3": Client("Henry96/FLUX.1-dev"),
+    "4": Client("FilipeR/FLUX.1-dev-UI"),
+    "5": Client("Nick088/FLUX.1-dev"),
+    "6": Client("markury/FLUX.1-dev-LoRA"),
+    "7": Client("NotAiLOL/FLUX.1-dev"),
+    "8": Client("multimodalart/FLUX.1-merged"),
+    "9": Client("gokaygokay/FLUX.1-dev-with-Captioner"),
+    "10": Client("sakakuto/flux"),
+    "11": Client("el-el-san/t2i_flux"),
+    "12": Client("FiditeNemini/FLUX.1-schnell"),
+    "13": Client("tuan2308/FLUX.1-schnell"),
+    "14": Client("lichorosario/FLUX.1-schnell"),
+    "15": Client("NotAiLOL/FLUX.1-schnell"),
+    "16": Client("innoai/FLUX.1-schnell"),
+    "17": Client("ChristianHappy/FLUX.1-schnell"),
 }
 
 async def generate_midjourney_image(prompt: str):
