@@ -23,15 +23,14 @@ flux_clients = {
     "6": Client("markury/FLUX.1-dev-LoRA"),
     "7": Client("NotAiLOL/FLUX.1-dev"),
     "8": Client("multimodalart/FLUX.1-merged"),
-    "9": Client("gokaygokay/FLUX.1-dev-with-Captioner"),
-    "10": Client("sakakuto/flux"),
-    "11": Client("el-el-san/t2i_flux"),
-    "12": Client("FiditeNemini/FLUX.1-schnell"),
-    "13": Client("tuan2308/FLUX.1-schnell"),
-    "14": Client("lichorosario/FLUX.1-schnell"),
-    "15": Client("NotAiLOL/FLUX.1-schnell"),
-    "16": Client("innoai/FLUX.1-schnell"),
-    "17": Client("ChristianHappy/FLUX.1-schnell"),
+    "9": Client("sakakuto/flux"),
+    "10": Client("el-el-san/t2i_flux"),
+    "11": Client("FiditeNemini/FLUX.1-schnell"),
+    "12": Client("tuan2308/FLUX.1-schnell"),
+    "13": Client("lichorosario/FLUX.1-schnell"),
+    "14": Client("NotAiLOL/FLUX.1-schnell"),
+    "15": Client("innoai/FLUX.1-schnell"),
+    "16": Client("ChristianHappy/FLUX.1-schnell"),
 }
 
 async def generate_midjourney_image(prompt: str):
