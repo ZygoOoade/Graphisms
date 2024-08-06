@@ -16,7 +16,94 @@ pixart_client = Client("PixArt-alpha/PixArt-Sigma")
 flux_schnell_client = Client("black-forest-labs/FLUX.1-schnell")
 flux_dev_client = Client("black-forest-labs/FLUX.1-dev")
 
-# ... (keeping the existing generate_* functions)
+async def generate_midjourney_image(prompt: str):
+    try:
+        result = await asyncio.to_thread(
+            midjourney_client.predict,
+            prompt=prompt,
+            negative_prompt="(deformed iris, deformed pupils, semi-realistic, cgi, 3d, render, sketch, cartoon, drawing, anime:1.4), text, close up, cropped, out of frame, worst quality, low quality, jpeg artifacts, ugly, duplicate, morbid, mutilated, extra fingers, mutated hands, poorly drawn hands, poorly drawn face, mutation, deformed, blurry, dehydrated, bad anatomy, bad proportions, extra limbs, cloned face, disfigured, gross proportions, malformed limbs, missing arms, missing legs, extra arms, extra legs, fused fingers, too many fingers, long neck",
+            use_negative_prompt=True,
+            style="2560 x 1440",
+            seed=0,
+            width=1080,
+            height=1080,
+            guidance_scale=6,
+            randomize_seed=True,
+            api_name="/run"
+        )
+        return [item['image'] for item in result[0]], "Midjourney"
+    except Exception as e:
+        print(f"Error generating Midjourney images: {e}")
+        return None, "Midjourney"
+
+async def generate_dalle_image(prompt: str):
+    try:
+        result = await asyncio.to_thread(
+            dalle_client.predict,
+            prompt=prompt,
+            negative_prompt="(deformed, distorted, disfigured:1.3), poorly drawn, bad anatomy, wrong anatomy, extra limb, missing limb, floating limbs, (mutated hands and fingers:1.4), disconnected limbs, mutation, mutated, ugly, disgusting, blurry, amputation",
+            use_negative_prompt=True,
+            style="3840 x 2160",
+            seed=1,
+            width=1080,
+            height=1080,
+            guidance_scale=7,
+            randomize_seed=True,
+            api_name="/run"
+        )
+        return [item['image'] for item in result[0]], "DALL-E"
+    except Exception as e:
+        print(f"Error generating DALL-E images: {e}")
+        return None, "DALL-E"
+
+async def generate_stable_diffusion_image(prompt: str):
+    try:
+        images = []
+        for _ in range(1):  # Generate 6 images
+            result = await asyncio.to_thread(
+                stable_diffusion_client.predict,
+                prompt=prompt,
+                negative_prompt="(deformed, distorted, disfigured:1.3), poorly drawn, bad anatomy, wrong anatomy, extra limb, missing limb, floating limbs, (mutated hands and fingers:1.4), disconnected limbs, mutation, mutated, ugly, disgusting, blurry, amputation",
+                seed=0,
+                randomize_seed=True,
+                width=1024,
+                height=1024,
+                guidance_scale=5,
+                num_inference_steps=50,
+                api_name="/infer"
+            )
+            image_path = result[0] if isinstance(result, tuple) else result
+            images.append(image_path)
+        return images, "Stable Diffusion"
+    except Exception as e:
+        print(f"Error generating Stable Diffusion images: {e}")
+        return None, "Stable Diffusion"
+
+async def generate_pixart_image(prompt: str):
+    try:
+        result = await asyncio.to_thread(
+            pixart_client.predict,
+            prompt=prompt,
+            negative_prompt="low quality, bad, watermark, ugly",
+            style="(No style)",
+            use_negative_prompt=False,
+            num_imgs=1,
+            seed=0,
+            width=1080,
+            height=1080,
+            schedule="DPM-Solver",
+            dpms_guidance_scale=4.5,
+            sas_guidance_scale=3,
+            dpms_inference_steps=30,
+            sas_inference_steps=30,
+            randomize_seed=True,
+            api_name="/run"
+        )
+        image_info = result[0][0]
+        return [image_info['image']], "PixArt-alpha"
+    except Exception as e:
+        print(f"Error generating PixArt-alpha images: {e}")
+        return None, "PixArt-alpha"
 
 async def generate_flux_image(prompt: str, client, model_name):
     try:
