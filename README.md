@@ -9,7 +9,7 @@ Il y a deux paramètres supplémentaires du modèle expliqués sur sa page (`mas
 `mask_expand: 30` sert à agrandir la zone du filigrane d'un nombre donné de pixels.
 `neighbor_stride: 10` sert à contrôler la taille de la foulée lors du calcul des images voisines à l'aide du réseau de trajectoires spatio-temporelles. Une petite valeur augmente *a priori* le temps de calcul mais permet une meilleure qualité.
 
-**Limitations**
+**Limitations**<br>
 En raison de sa méthode, le modèle ne marche pas si le watermark bouge considérablement durant la vidéo.<br>
 Par ailleurs, à moins que le filigrane (watermark) soit rectangulaire, le fait d'utiliser une zone $(x_1, x_2, x_3, x_4)$ ne **cible** pas avec finesse le watermark parce que cela conduit à prendre en compte des pixels qu'il vaudrait mieux ne pas écraser.
 A cet égard, d'autres méthodes utilisent des fichiers 'mask' qui permettent de cibler exactement le filigrane, qui est souvent un logo.
