@@ -12,7 +12,7 @@ Il y a deux paramètres supplémentaires du modèle expliqués sur sa page (`mas
 **Limitations**<br>
 En raison de sa méthode, le modèle ne marche pas si le watermark bouge considérablement durant la vidéo.<br>
 Par ailleurs, à moins que le filigrane (watermark) soit rectangulaire, le fait d'utiliser une zone $(x_1, x_2, x_3, x_4)$ ne **cible** pas avec finesse le watermark parce que cela conduit à prendre en compte des pixels qu'il vaudrait mieux ne pas écraser.
-A cet égard, d'autres méthodes utilisent des fichiers 'mask' qui permettent de cibler exactement le filigrane, qui est souvent un logo.
+A cet égard, d'autres méthodes utilisent un fichier 'mask' qui permet de cibler exactement le filigrane, qui est souvent un logo.
 
 ## Amélioration de la qualité de la vidéo
 [Video Watermark Removal.ipynb](https://github.com/ZygoOoade/Graphisms/blob/master/Video_Watermark_Removal.ipynb) permet également d'augmenter la résolution / la qualité de la vidéo en utilisant **RealESRGAN_model** et **GFPGANer_model_path**.
