@@ -1,8 +1,19 @@
-# Video Watermark Removal
+# Suppression des filigranes sur des vidéos et augmentation de leur résolution
 
-[Video Watermark Removal.ipynb](https://github.com/ZygoOoade/Graphisms/blob/master/Video_Watermark_Removal.ipynb) permet d'enlever le watermark d'une vidéo sur une zone ciblée rectangulaire (x_1, x_2, x_3, x_4) .
-Ce même notebook permet également d'augmenter la résolution / la qualité de l'image.
- Il s'agit d'une version fonctionnelle de [ce repo github](https://github.com/chenwr727/KLing-Video-WatermarkRemover-Enhancer) .
+## Suppression des filigranes sur des vidéos
+[Video Watermark Removal.ipynb](https://github.com/ZygoOoade/Graphisms/blob/master/Video_Watermark_Removal.ipynb) permet d'enlever le watermark d'une vidéo sur une zone ciblée rectangulaire (x_1, x_2, x_3, x_4) . x_1, x_2 sont les coordonnées haut-gauche et x_3, x_4 les coordonnées bas-droite  .
+Vous pouvez utiliser des sites [comme celui-ci](https://pixspy.com/) pour identifier des coordonnées précises sur une frame de votre vidéo.
+Il faut noter que, en raison de sa méthode, le modèle ne marche pas si le watermark bouge considérablement durant la vidéo.
+Le modèle utilisé pour enlever le watermark est un Spatio-Temporal Trajectory Network (STTN).
+Il s'agit d'une version fonctionnelle de [ce repo github](https://github.com/chenwr727/KLing-Video-WatermarkRemover-Enhancer) .
+Il y a deux paramètres supplémentaires du modèle expliqués sur sa page (`mask_expand: 30` et `neighbor_stride: 10`). 
+`mask_expand: 30` sert à agrandir la zone du filigrane d'un nombre donné de pixels.
+`neighbor_stride: 10` sert à contrôler la taille de la foulée lors du calcul des images voisines à l'aide du réseau de trajectoires spatio-temporelles. Une petite valeur augmente *a priori* le temps de calcul mais permet une meilleure qualité.
+
+
+## Amélioration de la qualité de la vidéo
+[Video Watermark Removal.ipynb](https://github.com/ZygoOoade/Graphisms/blob/master/Video_Watermark_Removal.ipynb) permet également d'augmenter la résolution / la qualité de la vidéo en utilisant **RealESRGAN_model** et **GFPGANer_model_path**.
+
 
 # Génération d'image
 
