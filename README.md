@@ -5,8 +5,8 @@
 Vous pouvez utiliser des sites [comme celui-ci](https://pixspy.com/) pour identifier des coordonnées précises sur une frame de votre vidéo.<br>
 Le modèle utilisé pour enlever le watermark est un Spatio-Temporal Trajectory Network (STTN).<br>
 Ce notebook est une version fonctionnelle de [ce repo github](https://github.com/chenwr727/KLing-Video-WatermarkRemover-Enhancer) .<br>
-Il y a deux paramètres supplémentaires du modèle expliqués sur sa page (`mask_expand: 30` et `neighbor_stride: 10`). 
-`mask_expand: 30` sert à agrandir la zone du filigrane d'un nombre donné de pixels.
+Il y a deux paramètres supplémentaires du modèle expliqués sur sa page (`mask_expand: 30` et `neighbor_stride: 10`). <br>
+`mask_expand: 30` sert à agrandir la zone du filigrane d'un nombre donné de pixels.<br>
 `neighbor_stride: 10` sert à contrôler la taille de la foulée lors du calcul des images voisines à l'aide du réseau de trajectoires spatio-temporelles. Une petite valeur augmente *a priori* le temps de calcul mais permet une meilleure qualité.
 
 **Limitations**<br>
