@@ -1,7 +1,7 @@
 # Suppression des filigranes sur des vidéos et augmentation de leur résolution
 
 ## Suppression des filigranes sur des vidéos
-[Video Watermark Removal.ipynb](https://github.com/ZygoOoade/Graphisms/blob/master/Video_Watermark_Removal.ipynb) permet d'enlever le watermark d'une vidéo sur une zone ciblée rectangulaire (x_1, x_2, x_3, x_4) . x_1, x_2 sont les coordonnées haut-gauche et x_3, x_4 les coordonnées bas-droite  .
+[Video Watermark Removal.ipynb](https://github.com/ZygoOoade/Graphisms/blob/master/Video_Watermark_Removal.ipynb) permet d'enlever le watermark d'une vidéo sur une zone ciblée rectangulaire $(x_1, x_2, x_3, x_4)$ . $x_1, x_2$ sont les coordonnées haut-gauche et $x_3, x_4$ les coordonnées bas-droite  .
 Vous pouvez utiliser des sites [comme celui-ci](https://pixspy.com/) pour identifier des coordonnées précises sur une frame de votre vidéo.
 Il faut noter que, en raison de sa méthode, le modèle ne marche pas si le watermark bouge considérablement durant la vidéo.
 Le modèle utilisé pour enlever le watermark est un Spatio-Temporal Trajectory Network (STTN).
